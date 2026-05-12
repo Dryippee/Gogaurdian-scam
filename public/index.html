@@ -6,349 +6,73 @@
 <title>Untitled document - Google Docs</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Google Sans','Product Sans','Segoe UI',Arial,sans-serif;background:#fff;color:#3c4043;font-size:14px;overflow:hidden;height:100vh;display:flex;flex-direction:column;user-select:none}
 
-  body {
-    font-family: 'Google Sans', 'Product Sans', Arial, Helvetica, sans-serif;
-    background: #fff;
-    color: #3c4043;
-    font-size: 14px;
-    overflow: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+/* top bar */
+.topbar{display:flex;align-items:center;padding:6px 16px 2px;background:#fff;border-bottom:1px solid #e0e0e0;gap:4px;flex-shrink:0;height:48px}
+.docs-icon{width:40px;height:40px;background:linear-gradient(135deg,#1a73e8,#4285f4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;margin-right:4px;cursor:pointer;flex-shrink:0;box-shadow:0 1px 2px rgba(26,115,232,0.3)}
+.docs-wordmark{color:#5f6368;font-size:22px;font-weight:400;letter-spacing:-0.5px;margin-right:12px;flex-shrink:0}
+.doc-title-wrap{display:flex;flex-direction:column;flex:1;min-width:0}
+.doc-title{font-size:18px;font-weight:400;color:#1f1f1f;border:none;outline:none;background:transparent;cursor:text;padding:2px 4px;border-radius:4px;width:100%;max-width:400px}
+.doc-title:hover,.doc-title:focus{background:#f1f3f4}
+.subtitle{font-size:12px;color:#5f6368;padding-left:4px}
+.action-icons{display:flex;align-items:center;gap:0;flex-shrink:0}
+.action-icons .material-icons{color:#5f6368;font-size:24px;padding:8px;border-radius:50%;cursor:pointer}
+.action-icons .material-icons:hover{background:#f1f3f4}
+.share-btn{background:#1a73e8;color:#fff;border:none;padding:0 24px;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;margin-left:8px;height:36px;line-height:36px;letter-spacing:0.25px}
+.share-btn:hover{background:#1765cc}
+.avatar{width:32px;height:32px;border-radius:50%;background:#e8eaed;display:flex;align-items:center;justify-content:center;color:#5f6368;font-size:14px;font-weight:500;cursor:pointer;margin-left:12px;flex-shrink:0}
 
-  /* ─── TOP BAR ─── */
-  .topbar {
-    display: flex;
-    align-items: center;
-    padding: 6px 16px 2px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-  .topbar .docs-icon {
-    width: 40px; height: 40px;
-    background: #1a73e8;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 700; font-size: 18px;
-    margin-right: 4px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-  .topbar .docs-wordmark {
-    color: #5f6368;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: -0.5px;
-    margin-right: 12px;
-    flex-shrink: 0;
-  }
-  .topbar .title-area {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-  }
-  .topbar .title-area .doc-title {
-    font-size: 18px;
-    font-weight: 400;
-    color: #1f1f1f;
-    border: none;
-    outline: none;
-    background: transparent;
-    cursor: text;
-    padding: 2px 4px;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 400px;
-  }
-  .topbar .title-area .doc-title:hover {
-    background: #f1f3f4;
-  }
-  .topbar .title-area .doc-title:focus {
-    background: #f1f3f4;
-  }
+/* menu bar */
+.menubar{display:flex;align-items:center;padding:0 16px;background:#fff;border-bottom:1px solid #e0e0e0;flex-shrink:0;height:30px}
+.menu-item{padding:4px 10px;font-size:13px;color:#3c4043;cursor:pointer;border-radius:4px}
+.menu-item:hover{background:#f1f3f4}
 
-  .topbar .title-area .subtitle {
-    font-size: 12px;
-    color: #5f6368;
-    padding-left: 4px;
-  }
+/* toolbar */
+.toolbar{display:flex;align-items:center;padding:2px 8px;background:#fff;border-bottom:1px solid #e0e0e0;flex-shrink:0;gap:1px;flex-wrap:wrap;min-height:36px}
+.toolbar .material-icons{font-size:18px;color:#5f6368;padding:4px 5px;border-radius:4px;cursor:pointer}
+.toolbar .material-icons:hover{background:#f1f3f4}
+.toolbar .material-icons:active{background:#e8eaed}
+.toolbar .sep{width:1px;height:20px;background:#e0e0e0;margin:0 3px;flex-shrink:0}
+.toolbar select{font-size:11px;padding:2px 4px;border:1px solid transparent;border-radius:4px;cursor:pointer;background:transparent;color:#3c4043;font-family:inherit;height:26px}
+.toolbar select:hover{border-color:#dadce0}
+.fsz{width:32px;text-align:center;font-size:11px;padding:2px;border:1px solid transparent;border-radius:4px;background:transparent;color:#3c4043;height:26px}
+.fsz:hover{border-color:#dadce0}
 
-  .topbar .action-icons {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    flex-shrink: 0;
-  }
-  .topbar .action-icons .material-icons {
-    color: #5f6368;
-    font-size: 24px;
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .topbar .action-icons .material-icons:hover {
-    background: #f1f3f4;
-  }
-  .topbar .share-btn {
-    background: #1a73e8;
-    color: #fff;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-left: 8px;
-    letter-spacing: 0.25px;
-  }
-  .topbar .share-btn:hover {
-    background: #1765cc;
-  }
-  .topbar .avatar {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: #e8eaed;
-    display: flex; align-items: center; justify-content: center;
-    color: #5f6368; font-size: 16px; font-weight: 500;
-    cursor: pointer;
-    margin-left: 8px;
-  }
+/* ruler */
+.ruler{height:18px;background:#f8f9fa;border-bottom:1px solid #e0e0e0;flex-shrink:0}
 
-  /* ─── MENU BAR ─── */
-  .menubar {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    flex-shrink: 0;
-    gap: 0;
-  }
-  .menubar .menu-item {
-    padding: 6px 10px;
-    font-size: 14px;
-    color: #3c4043;
-    cursor: pointer;
-    border-radius: 4px;
-    position: relative;
-    font-weight: 400;
-  }
-  .menubar .menu-item:hover {
-    background: #f1f3f4;
-  }
+/* doc container */
+.doc-container{flex:1;background:#e8eaed;overflow:hidden;position:relative;display:flex;justify-content:center;align-items:stretch}
+.doc-page{width:100%;max-width:1000px;background:#fff;margin:0;position:relative;height:100%;box-shadow:0 0 0 1px #ccc}
+.doc-page iframe{width:100%;height:100%;border:none;display:block}
 
-  /* ─── TOOLBAR ─── */
-  .toolbar {
-    display: flex;
-    align-items: center;
-    padding: 4px 16px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    flex-shrink: 0;
-    gap: 2px;
-    flex-wrap: wrap;
-  }
-  .toolbar .material-icons {
-    font-size: 20px;
-    color: #5f6368;
-    padding: 4px 6px;
-    border-radius: 4px;
-    cursor: default;
-  }
-  .toolbar .material-icons:hover {
-    background: #f1f3f4;
-  }
-  .toolbar .separator {
-    width: 1px;
-    height: 24px;
-    background: #e0e0e0;
-    margin: 0 4px;
-    flex-shrink: 0;
-  }
-  .toolbar .toolbar-select {
-    font-size: 12px;
-    padding: 3px 6px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    cursor: default;
-    background: transparent;
-    color: #3c4043;
-    font-family: inherit;
-  }
-  .toolbar .toolbar-select:hover {
-    border-color: #e0e0e0;
-    background: #fff;
-  }
-  .toolbar .font-size-input {
-    width: 36px;
-    text-align: center;
-    font-size: 12px;
-    padding: 3px 2px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    cursor: default;
-    background: transparent;
-    color: #3c4043;
-  }
-  .toolbar .font-size-input:hover {
-    border-color: #e0e0e0;
-  }
+/* url bar overlay */
+.url-bar{position:absolute;top:0;left:0;right:0;background:#fff;border-bottom:2px solid #1a73e8;padding:6px 12px;display:none;align-items:center;gap:6px;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+.url-bar.show{display:flex}
+.url-bar .material-icons{color:#5f6368;font-size:20px;cursor:pointer;padding:4px;border-radius:50%}
+.url-bar .material-icons:hover{background:#f1f3f4}
+.url-bar input{flex:1;padding:6px 12px;font-size:13px;border:1px solid #dadce0;border-radius:20px;outline:none;font-family:inherit}
+.url-bar input:focus{border-color:#1a73e8}
+.url-bar button{background:#1a73e8;color:#fff;border:none;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer}
+.url-bar button:hover{background:#1765cc}
 
-  /* ─── RULER ─── */
-  .ruler {
-    height: 20px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    flex-shrink: 0;
-  }
-  .ruler-inner {
-    flex: 1;
-    height: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    position: relative;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    overflow: hidden;
-  }
+/* status bar */
+.statusbar{height:24px;background:#fff;border-top:1px solid #e0e0e0;display:flex;align-items:center;padding:0 16px;font-size:12px;color:#5f6368;flex-shrink:0;gap:16px}
 
-  /* ─── DOCUMENT AREA ─── */
-  .doc-container {
-    flex: 1;
-    background: #e8e8e8;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  .doc-page {
-    width: 100%;
-    max-width: 960px;
-    background: #fff;
-    margin: 0;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
-    height: 100%;
-  }
-  .doc-page iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* ─── URL BAR OVERLAY ─── */
-  .url-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 2px solid #1a73e8;
-    padding: 8px 16px;
-    display: none;
-    align-items: center;
-    gap: 8px;
-    z-index: 100;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  }
-  .url-bar.visible {
-    display: flex;
-  }
-  .url-bar .material-icons {
-    color: #5f6368;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 50%;
-  }
-  .url-bar .material-icons:hover {
-    background: #f1f3f4;
-  }
-  .url-bar input {
-    flex: 1;
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #dadce0;
-    border-radius: 24px;
-    outline: none;
-    font-family: inherit;
-  }
-  .url-bar input:focus {
-    border-color: #1a73e8;
-  }
-  .url-bar .go-btn {
-    background: #1a73e8;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  .url-bar .go-btn:hover {
-    background: #1765cc;
-  }
-
-  /* ─── STATUS BAR ─── */
-  .statusbar {
-    height: 24px;
-    background: #fff;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    font-size: 12px;
-    color: #5f6368;
-    flex-shrink: 0;
-    gap: 16px;
-  }
-
-  /* ─── TOAST ─── */
-  .toast {
-    position: fixed;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #323232;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-size: 14px;
-    z-index: 200;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-  }
-  .toast.show {
-    opacity: 1;
-  }
-
-  /* ─── SCROLLBAR ─── */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: #aaa; }
+/* toast */
+.toast{position:fixed;bottom:50px;left:50%;transform:translateX(-50%);background:#323232;color:#fff;padding:10px 22px;border-radius:4px;font-size:13px;z-index:200;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.show{opacity:1}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="docs-icon">G</div>
   <span class="docs-wordmark">Docs</span>
-  <div class="title-area">
-    <input class="doc-title" value="Untitled document" readonly>
-    <div class="subtitle">File Edit View Insert Format Tools Extensions Help</div>
+  <div class="doc-title-wrap">
+    <input class="doc-title" id="docTitle" value="Untitled document" readonly>
   </div>
   <div class="action-icons">
     <span class="material-icons" title="Star">star_outline</span>
@@ -360,97 +84,78 @@
   <div class="avatar">P</div>
 </div>
 
-<!-- MENU BAR -->
 <div class="menubar">
-  <span class="menu-item" data-menu="file">File</span>
-  <span class="menu-item" data-menu="edit">Edit</span>
-  <span class="menu-item" data-menu="view">View</span>
-  <span class="menu-item" data-menu="insert">Insert</span>
-  <span class="menu-item" data-menu="format">Format</span>
-  <span class="menu-item" data-menu="tools">Tools</span>
-  <span class="menu-item" data-menu="extensions">Extensions</span>
-  <span class="menu-item" data-menu="help">Help</span>
+  <span class="menu-item">File</span>
+  <span class="menu-item">Edit</span>
+  <span class="menu-item">View</span>
+  <span class="menu-item">Insert</span>
+  <span class="menu-item">Format</span>
+  <span class="menu-item">Tools</span>
+  <span class="menu-item">Extensions</span>
+  <span class="menu-item">Help</span>
 </div>
 
-<!-- TOOLBAR -->
 <div class="toolbar">
   <span class="material-icons" title="Print">print</span>
-  <span class="separator"></span>
+  <div class="sep"></div>
   <span class="material-icons" title="Undo">undo</span>
   <span class="material-icons" title="Redo">redo</span>
-  <span class="separator"></span>
+  <div class="sep"></div>
   <span class="material-icons" title="Paint format">format_paint</span>
-  <span class="separator"></span>
-  <select class="toolbar-select" style="min-width:100px;">
-    <option>Normal text</option>
-    <option>Title</option>
-    <option>Subtitle</option>
-    <option>Heading 1</option>
-    <option>Heading 2</option>
-    <option>Heading 3</option>
-  </select>
-  <select class="toolbar-select" style="min-width:120px;">
-    <option>Arial</option>
-    <option>Times New Roman</option>
-    <option>Courier New</option>
-    <option>Georgia</option>
-    <option>Verdana</option>
-  </select>
-  <input class="font-size-input" value="11">
+  <div class="sep"></div>
+  <select><option>Normal text</option><option>Title</option><option>Subtitle</option><option>Heading 1</option><option>Heading 2</option></select>
+  <select style="width:90px"><option>Arial</option><option>Times New Roman</option><option>Courier New</option><option>Georgia</option></select>
+  <input class="fsz" value="11">
   <span class="material-icons" title="Bold">format_bold</span>
   <span class="material-icons" title="Italic">format_italic</span>
   <span class="material-icons" title="Underline">format_underlined</span>
-  <span class="separator"></span>
+  <span class="material-icons" title="Strikethrough">strikethrough_s</span>
+  <div class="sep"></div>
   <span class="material-icons" title="Text color">text_format</span>
   <span class="material-icons" title="Highlight">highlight</span>
-  <span class="separator"></span>
+  <div class="sep"></div>
   <span class="material-icons" title="Insert link">link</span>
-  <span class="material-icons" title="Insert comment">add_comment</span>
-  <span class="material-icons" title="Insert image">add_photo_alternate</span>
-  <span class="separator"></span>
-  <span class="material-icons" title="Align">format_align_left</span>
+  <span class="material-icons" title="Comment">add_comment</span>
+  <span class="material-icons" title="Image">add_photo_alternate</span>
+  <div class="sep"></div>
+  <span class="material-icons" title="Align left">format_align_left</span>
+  <span class="material-icons" title="Center">format_align_center</span>
+  <span class="material-icons" title="Right">format_align_right</span>
+  <span class="material-icons" title="Justify">format_align_justify</span>
   <span class="material-icons" title="Line spacing">format_line_spacing</span>
+  <div class="sep"></div>
   <span class="material-icons" title="Numbered list">format_list_numbered</span>
   <span class="material-icons" title="Bulleted list">format_list_bulleted</span>
-  <span class="separator"></span>
   <span class="material-icons" title="Indent decrease">format_indent_decrease</span>
   <span class="material-icons" title="Indent increase">format_indent_increase</span>
-  <span class="separator"></span>
+  <div class="sep"></div>
   <span class="material-icons" title="Clear formatting">format_clear</span>
 </div>
 
-<!-- RULER -->
-<div class="ruler">
-  <div class="ruler-inner"></div>
-</div>
+<div class="ruler"></div>
 
-<!-- DOCUMENT -->
 <div class="doc-container" id="docContainer">
-  <div class="doc-page" id="docPage">
-    <iframe id="browserFrame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+  <div class="doc-page">
+    <iframe id="browserFrame" src="about:blank"></iframe>
   </div>
-
-  <!-- URL BAR -->
   <div class="url-bar" id="urlBar">
-    <span class="material-icons" id="urlBack" title="Back">arrow_back</span>
-    <span class="material-icons" id="urlForward" title="Forward">arrow_forward</span>
-    <span class="material-icons" id="urlRefresh" title="Refresh">refresh</span>
-    <input type="text" id="urlInput" placeholder="Enter a URL..." autofocus>
-    <button class="go-btn" id="urlGo">Go</button>
-    <span class="material-icons" id="urlClose" title="Close URL bar (Esc)">close</span>
+    <span class="material-icons" id="btnBack" title="Back">arrow_back</span>
+    <span class="material-icons" id="btnFwd" title="Forward">arrow_forward</span>
+    <span class="material-icons" id="btnRefresh" title="Refresh">refresh</span>
+    <input type="text" id="urlInput" placeholder="Search or type a URL...">
+    <button id="btnGo">Go</button>
+    <span class="material-icons" id="btnClose" title="Close (Esc)">close</span>
   </div>
 </div>
 
-<!-- STATUS BAR -->
 <div class="statusbar">
-  <span id="statusZoom">100%</span>
-  <span id="statusView">Print layout</span>
-  <span id="statusWords">0 words</span>
+  <span>100%</span>
+  <span>Print layout</span>
+  <span id="statusUrl"></span>
   <span style="flex:1"></span>
-  <span id="statusExplore">Explore</span>
+  <span>Explore</span>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -458,182 +163,152 @@
   const frame = document.getElementById('browserFrame');
   const urlBar = document.getElementById('urlBar');
   const urlInput = document.getElementById('urlInput');
-  const urlGo = document.getElementById('urlGo');
-  const urlClose = document.getElementById('urlClose');
-  const urlBack = document.getElementById('urlBack');
-  const urlForward = document.getElementById('urlForward');
-  const urlRefresh = document.getElementById('urlRefresh');
-  const docTitle = document.querySelector('.doc-title');
+  const btnGo = document.getElementById('btnGo');
+  const btnClose = document.getElementById('btnClose');
+  const btnBack = document.getElementById('btnBack');
+  const btnFwd = document.getElementById('btnFwd');
+  const btnRefresh = document.getElementById('btnRefresh');
+  const docTitle = document.getElementById('docTitle');
   const toast = document.getElementById('toast');
-  const statusWords = document.getElementById('statusWords');
+  const statusUrl = document.getElementById('statusUrl');
 
-  let history = [];
-  let historyIdx = -1;
+  let hist = [];
+  let histIdx = -1;
   let toastTimer = null;
 
   function showToast(msg) {
     toast.textContent = msg;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
   }
 
   function navigate(url) {
     if (!url) return;
-    let normalized = url;
-    if (!normalized.startsWith('http://') && !normalized.startsWith('https://') && !normalized.startsWith('/proxy')) {
-      normalized = 'https://' + normalized;
+    url = url.trim();
+    if (!/^https?:\/\//i.test(url) && !url.startsWith('//')) {
+      url = 'https://' + url;
     }
-    if (!normalized.startsWith('/proxy')) {
-      normalized = '/proxy?url=' + encodeURIComponent(normalized);
-    }
-    frame.src = normalized;
-    urlInput.value = url;
+    /* strip protocol for display */
+    const display = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    docTitle.value = display.length > 30 ? display.substring(0, 30) + '...' : display;
+    statusUrl.textContent = display;
 
-    history = history.slice(0, historyIdx + 1);
-    history.push(normalized);
-    historyIdx = history.length - 1;
+    frame.src = url;
+    urlInput.value = display;
 
-    const displayUrl = url.replace(/^https?:\/\//, '');
-    docTitle.value = displayUrl.length > 28 ? displayUrl.substring(0, 28) + '…' : displayUrl;
-    statusWords.textContent = displayUrl;
+    hist = hist.slice(0, histIdx + 1);
+    hist.push(url);
+    histIdx = hist.length - 1;
   }
 
-  function toggleUrlBar() {
-    urlBar.classList.toggle('visible');
-    if (urlBar.classList.contains('visible')) {
-      urlInput.focus();
-      urlInput.select();
-    }
-  }
-
-  function showUrlBar() {
-    urlBar.classList.add('visible');
+  function showBar() {
+    urlBar.classList.add('show');
     urlInput.focus();
     urlInput.select();
   }
 
-  function hideUrlBar() {
-    urlBar.classList.remove('visible');
+  function hideBar() {
+    urlBar.classList.remove('show');
   }
 
-  // Keyboard shortcut: Ctrl+L or Cmd+L to open URL bar
+  /* keyboard shortcuts */
   document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'l') {
       e.preventDefault();
-      showUrlBar();
+      showBar();
       return;
     }
     if (e.key === 'Escape') {
-      hideUrlBar();
-      return;
-    }
-    // Ctrl+Shift+L to toggle URL bar (alternative)
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'L') {
-      e.preventDefault();
-      toggleUrlBar();
-      return;
+      hideBar();
     }
   });
 
-  // Double-click title to show URL bar
   docTitle.addEventListener('dblclick', function(e) {
     e.preventDefault();
-    showUrlBar();
+    showBar();
   });
 
-  // URL bar actions
-  urlGo.addEventListener('click', function() {
+  btnGo.addEventListener('click', function() {
     navigate(urlInput.value);
-    hideUrlBar();
+    hideBar();
   });
 
   urlInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       navigate(urlInput.value);
-      hideUrlBar();
+      hideBar();
     }
   });
 
-  urlClose.addEventListener('click', hideUrlBar);
+  btnClose.addEventListener('click', hideBar);
 
-  urlBack.addEventListener('click', function() {
-    if (historyIdx > 0) {
-      historyIdx--;
-      frame.src = history[historyIdx];
-    }
+  btnBack.addEventListener('click', function() {
+    if (histIdx > 0) { histIdx--; frame.src = hist[histIdx];
+      const d = hist[histIdx].replace(/^https?:\/\//, '').replace(/\/$/, '');
+      docTitle.value = d.length > 30 ? d.substring(0, 30)+'...' : d;
+      statusUrl.textContent = d; }
   });
 
-  urlForward.addEventListener('click', function() {
-    if (historyIdx < history.length - 1) {
-      historyIdx++;
-      frame.src = history[historyIdx];
-    }
+  btnFwd.addEventListener('click', function() {
+    if (histIdx < hist.length - 1) { histIdx++; frame.src = hist[histIdx];
+      const d = hist[histIdx].replace(/^https?:\/\//, '').replace(/\/$/, '');
+      docTitle.value = d.length > 30 ? d.substring(0, 30)+'...' : d;
+      statusUrl.textContent = d; }
   });
 
-  urlRefresh.addEventListener('click', function() {
+  btnRefresh.addEventListener('click', function() {
     if (frame.src && frame.src !== 'about:blank') {
       frame.src = frame.src;
     }
   });
 
-  // Fake toolbar interactions
-  document.querySelectorAll('.toolbar .material-icons, .toolbar select, .toolbar input').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      if (el.tagName === 'INPUT') return;
-      showToast('This feature is only available in the online editor');
-    });
+  /* google docs icon → reset */
+  document.querySelector('.docs-icon').addEventListener('click', function() {
+    frame.src = 'about:blank';
+    docTitle.value = 'Untitled document';
+    statusUrl.textContent = '';
+    urlInput.value = '';
+    hist = [];
+    histIdx = -1;
   });
 
+  /* fake toolbar clicks */
+  document.querySelectorAll('.toolbar .material-icons, .toolbar select, .toolbar .fsz').forEach(function(el) {
+    el.addEventListener('click', function() {
+      showToast('This feature requires an internet connection');
+    });
+  });
   document.querySelectorAll('.menu-item').forEach(function(el) {
     el.addEventListener('click', function() {
-      showToast('Menu: ' + el.dataset.menu + ' (offline mode)');
+      showToast('\u2018' + el.textContent + '\u2019 menu is unavailable offline');
     });
   });
-
   document.querySelector('.share-btn').addEventListener('click', function() {
-    showToast('Sharing is not available in offline mode');
+    showToast('Sharing is unavailable offline');
   });
-
   document.querySelectorAll('.action-icons .material-icons').forEach(function(el) {
     el.addEventListener('click', function() {
-      showToast('Feature not available offline');
+      showToast('Feature unavailable offline');
     });
   });
-
-  // AVATAR click
   document.querySelector('.avatar').addEventListener('click', function() {
-    showToast('Account info (offline)');
+    showToast('Account info unavailable offline');
   });
 
-  // DOCS ICON click - reset to blank doc
-  document.querySelector('.docs-icon').addEventListener('click', function() {
-    if (confirm('Open a new blank document?')) {
-      frame.src = 'about:blank';
-      docTitle.value = 'Untitled document';
-      statusWords.textContent = '0 words';
-      urlInput.value = '';
-      history = [];
-      historyIdx = -1;
-    }
-  });
-
-  // Hover tooltip for document area - shows we're browsing
+  /* try to extract title from loaded page */
   frame.addEventListener('load', function() {
     try {
-      const title = frame.contentDocument?.title;
-      if (title) {
-        docTitle.value = title.length > 28 ? title.substring(0, 28) + '…' : title;
+      if (frame.contentDocument && frame.contentDocument.title) {
+        const t = frame.contentDocument.title;
+        docTitle.value = t.length > 30 ? t.substring(0, 30) + '...' : t;
       }
-    } catch(e) {
-      // cross-origin, ignore
-    }
+    } catch(e) { /* cross-origin */ }
   });
 
-  // Demo: show getting started toast
   setTimeout(function() {
-    showToast('Press Ctrl+L to browse the web — looks like Google Docs');
-  }, 500);
+    showToast('Ctrl+L to browse \u2014 looks like Docs');
+  }, 600);
 })();
 </script>
 </body>
